@@ -7,6 +7,10 @@ const rolesRepository = new RolesRepository()
 
 rolesRouter.post('/', (req, res) => {
   const { nome } = req.body
+  const roleExistente = rolesRepository.findByName(nome)
+  if (roleExistente) {
+    return res.status(400).json({ error: 'Role ja existe' })
+  }
 
   const role = rolesRepository.create({ nome })
 
