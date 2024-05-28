@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MyAPI Documentation",
+    "description": "MyAPI Documentation with all specifcations",
+    "version": "1.0.0",
+    "contact": {
+      "name": "João Victor",
+      "email": "joaovictorsilva60@live.com"
+    }
+  },
+  "paths": {
+    "/roles": {
+      "post": {
+        "tags": ["Role"],
+        "summary": "Create a role",
+        "description": "Create a new role",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Role criado"
+          },
+          "400": {
+            "description": "Role ja existe"
+          }
+        }
+
+      },
+      "get": {
+        "tags": ["Role"],
+        "summary": "List all roles",
+        "description": "Returns all Roles paginated.",
+        "responses": {
+          "200": {
+            "description": "Sucess."
+          }
+        }
+      }
+    }
+  }
+}
